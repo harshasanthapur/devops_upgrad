@@ -28,3 +28,9 @@ export PATH
 Verify maven installation:
 
 mvn -version
+
+
+
+HOW TO RUN THE CODE:
+
+run bash test.sh
