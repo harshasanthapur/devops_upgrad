@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git download') {
+            steps {
+                git branch: 'main', url: 'https://github.com/savinderpuri/knowledgehut.git'
+            }
+        }
+        stage('Build'){
+            steps{
+                bat '''cd jpetstore6
+                ./mvnw clean package -Dlicense.skip=true'''
+            }
+        }
+        stage('Test'){
+            steps{
+                junit ' jpetstore6/target/surefire-reports/*xml'
+            }
+        }
+        stage('Prepare environment'){
+            steps{
+                
+                bat 'cd C:\\apache-tomcat-9.0.83\\bin && catalina.bat start'
+                
+                   
+            }
+        }
+        stage('Deploy'){
+            steps{
+                bat 'xcopy /Y jpetstore6\\target\\jpetstore.war C:\\apache-tomcat-9.0.83\\webapps\\'
+                
+                
+            }
+        }
+        
+    }
+}

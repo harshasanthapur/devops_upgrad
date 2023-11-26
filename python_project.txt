@@ -1,0 +1,2 @@
+docker build -t harshasanthapur123/python_app:v1 .
+docker run -p 8080:8080 harshasanthapur123/python_app:v1
