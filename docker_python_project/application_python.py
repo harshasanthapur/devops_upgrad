@@ -14,4 +14,4 @@ def index():
     return 'Hello, welcome to my Python Flask App!'
 
 if __name__ == '__main__':
-    app.run(host='192.168.56.1', port=8080)
+    app.run(host='0.0.0.0', port=8080)

@@ -11,8 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy your application code into the container
-COPY . .
+COPY . /app/
 
+# Specify any required environment variables
+ENV PYTHONUNBUFFERED 1
 
 
 # Specify the command to run your application
