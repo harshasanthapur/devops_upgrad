@@ -1,0 +1,6 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "k8s-app.fullname" . }}
+# (rest of the deployment configuration)
+

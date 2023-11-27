@@ -1,0 +1,12 @@
+# configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-app-config
+data:
+  config.json: |-
+    {
+      "environment": "production",
+      "api_key": "your_api_key"
+    }
+
