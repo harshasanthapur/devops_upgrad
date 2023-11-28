@@ -1,0 +1,31 @@
+---
+- name: NGINX Installation on Containers
+  hosts: containers
+  become: yes
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+    - name: Install pip3
+      apt:
+        name: python3-pip
+        state: present
+      become: yes
+    - name: Install NGINX
+      apt: 
+        name: nginx
+        state: present
+    - name: start nginx
+      service:
+        name: nginx
+        state: started
+    - name: start docker
+      pip:
+        name: docker
+        state: present
+      become: yes 
+

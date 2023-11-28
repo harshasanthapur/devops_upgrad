@@ -1,0 +1,16 @@
+---
+- name: NGINX Installation on Virtual Machines
+  hosts: virtual_machines
+  become: true
+  tasks:
+    - name: Update package lists
+      apt:
+        update_cache: yes
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+    - name: start nginx
+      service:
+        name: nginx
+        state: started      
