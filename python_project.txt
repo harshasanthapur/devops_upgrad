@@ -1,2 +1,108 @@
 docker build -t harshasanthapur123/python_app:v1 .
 docker run -p 8080:8080 harshasanthapur123/python_app:v1
+
+642211494152
+AKIAZLBWJXEEC6ZSM5FQ 
+
+
+AKIAZLBWJXEEC6ZSM5FQ
+8usgVtQc+hONqb1b3n2HINIuPiBTSfo/ZmYUVa7T
+
+
+642211494152
+arn:aws:iam::642211494152:user/santhapurharsha
+
+zip -r awslamda_njs.zip *
+
+aws lambda create-function   --function-name WordLengthFunction   --runtime nodejs16.x   --handler index.handler   --role arn:aws:iam::642211494152:user/santhapurharsha   --zip-file fileb://awslambda_njs.zip --role arn:aws:iam::642211494152:role/aws_role
+
+
+curl -X POST -H "Content-Type: application/json" -d '{"word": "hello"}' http://localhost:9090/length
+
+Invoke-RestMethod -Uri http://localhost:9090/length -Method Post -Headers @{"Content-Type"="application/json"} -Body '{"word": "hello"}'
+
+
+
+aws lambda create-function --function-name WordLength --runtime nodejs14.x --zip-file fileb://function.zip --handler app.handler --role 
+arn:aws:iam::642211494152:role/wordlength_app_role
+
+aws lambda invoke --function-name WordLength --payload '{"word": "example"}' output.txt
+
+aws lambda invoke --function-name WordLength --payload 'eyJ3b3JkIjogImV4YW1wbGUifQ==' output.txt
+
+aws apigateway create-rest-api --name wordlengthAPI
+
+ wordlengthAPIresource
+WordLengthAPI
+
+aws apigateway get-resources --rest-api-id rztq7qdts9
+
+aws apigateway create-resource --rest-api-id YourApiId --parent-id your-parent-resource-id --path-part YourResourcePath
+
+aws apigateway put-integration --rest-api-id rztq7qdts9 --resource-id lujsc5 --http-method POST --type AWS_PROXY \
+  --integration-http-method POST --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:642211494152:function:WordLengthFunction/invocations
+
+$apiId = aws apigateway create-rest-api --name wordlengthAPI --output json | ConvertFrom-Json | Select-Object -ExpandProperty id
+Write-Host "API ID: $apiId"
+
+
+aws apigateway create-resource --rest-api-id if3vk3cdvh --parent-id zdsln1 --path-part wordlengthresource
+
+arn:aws:lambda:us-east-1:642211494152:function:WordLength
+
+arn:aws:lambda:us-east-1:642211494152:function:WordLength
+
+aws apigateway put-integration --rest-api-id if3vk3cdvh --resource-id zdsln1 --http-method GET --type AWS_PROXY --integration-http-method POST --uri arn:aws:apigateway:us-east-1:lambda:path/2015-03-31/functions/arn:aws:lambda:us-east-1:642211494152:function:WordLength/invocations
+
+
+aws apigateway put-integration --rest-api-id if3vk3cdvh --resource-id zdsln1 --http-method GET --type AWS_PROXY --integration-http-method POST --uri arn:aws:lambda:us-east-1:lambda:path/2015-03-31/functions/WordLength/invocations
+
+
+
+aws apigateway get-resources --rest-api-id if3vk3cdvh
+aws apigateway get-methods --rest-api-id if3vk3cdvh --resource-id kwnqydfjg2
+
+
+
+
+
+Project Implementation: Node.js Codebase Gap Analysis with SonarQube
+
+Step 1: Set up SonarQube Instance
+Local Setup
+1.	Download SonarQube:
+•	Visit the SonarQube Download Page and download the Community Edition.
+•	Extract the downloaded archive to your preferred directory.
+2.	Start SonarQube:
+•	Navigate to the SonarQube directory and run the startup script (e.g., bin/[your_os]/sonar.sh).
+•	Access the SonarQube web interface at http://localhost:9000.
+Docker Setup
+1.	Run SonarQube Docker Container:
+bashCopy code
+docker run -d --name sonarqube -p 9000:9000 -p 9092:9092 sonarqube 
+This command starts a SonarQube Docker container with exposed ports.
+
+Step 2: Install Relevant SonarQube Plugins for Node.js
+1.	Install SonarScanner for Node.js:
+•	Follow the official SonarScanner for Node.js installation guide.
+•	Ensure Node.js is installed on your system.
+Step 3: Configure SonarQube Properties
+1.	Create sonar-project.properties File:
+•	In the root of your Node.js project, create a file named sonar-project.properties.
+•	Configure the file with project details and settings:
+propertiesCopy code
+sonar.projectKey=my-nodejs-project sonar.projectName=My Node.js Project sonar.projectVersion=1.0 sonar.sources=. sonar.exclusions=node_modules/**, coverage/** sonar.sourceEncoding=UTF-8 
+Step 4: Integrate the Provided Node.js Codebase with SonarQube
+1.	Run SonarScanner:
+•	Open a terminal in your project directory.
+•	Execute the following command:
+bashCopy code
+sonar-scanner 
+2.	This command triggers the analysis and sends the results to your SonarQube instance.
+
+
+
+
+
+
+
